@@ -12,9 +12,34 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var myTabBarController: UITabBarController!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+         window = UIWindow(frame: UIScreen.main.bounds)
+        let firstView: UIViewController = FirstViewController()
+        let secondView: UIViewController = SecondViewController()
+        
+        firstView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.featured, tag: 1)//アイコン
+        secondView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 2)
+        let viewArray = [firstView,secondView]
+        myTabBarController = UITabBarController()
+        
+        var myLabel = UILabel()
+        myLabel.text = "aaa"
+        myLabel.backgroundColor = UIColor.brown
+        let rec = CGRect(x: 10.0, y: 10.0 + 100.0, width:100.0 , height: 200.0)
+        myLabel.frame = rec
+        myTabBarController.view.addSubview(myLabel)
+        myTabBarController?.setViewControllers(viewArray, animated: false)
+        self.window!.rootViewController = myTabBarController
+        
+        self.window!.makeKeyAndVisible()
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }

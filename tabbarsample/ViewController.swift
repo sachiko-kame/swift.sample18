@@ -8,6 +8,8 @@
 
 import UIKit
 
+//参考https://www.nukoneko.info/blog/?p=477
+//参考http://swift-salaryman.com/uitabbarcontroller.php
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
